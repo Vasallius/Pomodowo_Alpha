@@ -11,10 +11,18 @@ $("#submit-task").keyup(function (e) {
   if (e.keyCode === 13) {
     const task = $(this).val();
     console.log(task);
-    // Add task to the list
+    // Add task to the list with clear button
     $(".list-group").append(
-      '<li class="list-group-item my-2 border-top">' + task + "</li>"
+      '<div class="col-xs-2 col-md-6"><li class="list-group-item my-2 border-top d-flex justify-content-between align-items-center">' +
+        task +
+        '<a href="#"><i class="fas fa-times ml-auto"></i></li></a></div>'
     );
+
+    // $(".list-group").append(
+    //   '<li class="list-group-item my-2 border-top d-flex justify-content-between align-items-center">' +
+    //     task +
+    //     '<i class="fas fa-times ml-auto"></i></li>'
+    // );
     $(this).val("");
   }
 });
