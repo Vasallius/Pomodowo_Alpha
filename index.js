@@ -112,9 +112,13 @@ function resetWheel() {
   theWheel.draw(); // Call draw to render changes to the wheel.
 }
 
+// Starts spinning animation
+
 $("#test-btn").click(function () {
   console.log("i got clicked");
   theWheel.startAnimation();
 });
 
-$("#reset-btn").click(resetWheel);
+// Resets wheel so it can be spun again
+
+$("#reset").click(resetWheel);
