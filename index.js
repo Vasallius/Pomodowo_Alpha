@@ -85,7 +85,7 @@ let theWheel = new Winwheel({
     spins: 8, // The number of complete 360 degree rotations the wheel is to do.
     easing: "Power4.easeOut",
     stopAngle: 45,
-    callbackFinished: "alertPrize()",
+    callbackFinished: alertPrize,
   },
 
   // Turn pointer guide on.
@@ -106,7 +106,15 @@ function alertPrize() {
   // theWheel.startAnimation();
 }
 
+function resetWheel() {
+  theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
+  theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
+  theWheel.draw(); // Call draw to render changes to the wheel.
+}
+
 $("#test-btn").click(function () {
   console.log("i got clicked");
   theWheel.startAnimation();
 });
+
+$("#reset-btn").click(resetWheel);
