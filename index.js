@@ -1,4 +1,4 @@
-// const tasks = [];
+const tasks = [];
 let task_segments = [];
 var theWheel;
 
@@ -11,44 +11,31 @@ $("#submit-task").keyup(function (e) {
     console.log("===Adding task====");
     let task = $(this).val();
 
-    // Add task to the list with clear button
-    $(".list-group").append(
-      '<div class="col-xs-2 col-md-6"><li class="list-group-item my-2 border-top d-flex justify-content-between align-items-center">' +
-        task +
-        '<i class="fas fa-times ml-auto"></i></li></div>'
-    );
+    let list_string = `<div class="col-xs-2 col-md-6"><li class="list-group-item my-2 border-top d-flex justify-content-between align-items-center"> 
+      ${task} 
+      <i class="fas fa-times ml-auto"></i></li></div>`;
 
-    $(".list-group")
-      .last()
+    $(list_string)
+      .appendTo(".list-group")
       .click(function () {
         let taskname = $(this).innerText;
         console.log("List item clicked");
         console.log(taskname);
         removeTaskFromLocalStorage(task);
-        // $(this).parent().remove();
+        this.remove();
         console.log("===Deleting task===");
-        deleteSegment();
+        deleteSegment(taskname);
       });
 
-    // $("li")[$("li").length - 1].click(function () {
-    //   console.log("hi");
-    //   console.log($(this));
-    //   console.log("===Deleting task===");
-    //   const task = $(this).parent()[0].innerText;
-    //   removeTaskFromLocalStorage(task);
-    //   $(this).parent().remove();
-    //   deleteSegment();
-    // });
-
-    // function deleteSegment() {
-    //   // Call function to remove a segment from the wheel, by default the last one will be
-    //   // removed; you can pass in the number of the segment to delete if desired.
-    //   theWheel.deleteSegment(tasks.indexOf(task) + 1);
-    //   console.log("delete successfull");
-    //   // The draw method of the wheel object must be called to render the changes.
-    //   theWheel.draw();
-    //   console.log("error");
-    // }
+    function deleteSegment() {
+      // Call function to remove a segment from the wheel, by default the last one will be
+      // removed; you can pass in the number of the segment to delete if desired.
+      theWheel.deleteSegment(tasks.indexOf(task) + 1);
+      console.log("delete successfull");
+      // The draw method of the wheel object must be called to render the changes.
+      theWheel.draw();
+      console.log("error");
+    }
 
     // Store task in Local Storage
     storeTaskInLocalStorage(task);
@@ -73,24 +60,6 @@ $("#submit-task").keyup(function (e) {
     $(this).val("");
   }
 });
-
-// $("li").click(function (e) {
-//   console.log(e.target);
-//   console.log("===Deleting task===");
-//   const task = $(this).parent()[0].innerText;
-//   removeTaskFromLocalStorage(task);
-//   $(this).parent().remove();
-//   deleteSegment();
-// });
-
-// function deleteSegment() {
-//   // Call function to remove a segment from the wheel, by default the last one will be
-//   // removed; you can pass in the number of the segment to delete if desired.
-//   theWheel.deleteSegment(tasks.indexOf(task) + 1);
-
-//   // The draw method of the wheel object must be called to render the changes.
-//   theWheel.draw();
-// }
 
 function getTasks() {
   let tasks;
@@ -233,7 +202,7 @@ $("#test-btn").click(function () {
   theWheel.startAnimation();
 });
 
-$("#reset").onclick(function () {
+$("#reset").click(function () {
   localStorage.clear();
   console.log("i got reset");
 });
