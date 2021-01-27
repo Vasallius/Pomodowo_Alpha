@@ -78,6 +78,16 @@ function getTasks() {
     let segment = { fillStyle: "#eae56f", text: task };
     task_segments.push(segment);
   });
+
+  $("li").click(function () {
+    let taskname = $(this).innerText;
+    console.log("List item clicked");
+    console.log(taskname);
+    removeTaskFromLocalStorage(task);
+    this.remove();
+    console.log("===Deleting task===");
+    deleteSegment(taskname);
+  });
 }
 
 function loadWheel() {
