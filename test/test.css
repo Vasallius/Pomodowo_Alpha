@@ -6,13 +6,20 @@
   height: 500px;
   margin: calc(100px / 2 + 0px);
 }
+/* 
+.linegraph {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+} */
 
 .ciclegraph:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  border: 2px solid teal;
+  /* border: 2px solid teal; */
   width: calc(100% - 2px * 2);
   height: calc(100% - 2px * 2);
   border-radius: 50%;
@@ -29,6 +36,29 @@
   border-radius: 50%;
 }
 
+.line {
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  margin: calc(-50px / 2); */
+
+  /* width: 20px; */
+  /* border: 1px solid red; */
+  /* margin: calc(-50px / 2); */
+  /* transition: 3s transform linear; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 4px;
+  margin: calc(-4px / 2) calc(-40px / 2);
+
+  /* border-radius: 50%; */
+  background: #c4c4c4;
+  border-radius: 20px;
+}
+
 span {
   color: black;
   font-size: 20px;
@@ -37,7 +67,7 @@ span {
 }
 
 .circle {
-  transition: 2s transform linear;
+  /* transition: 2s transform linear; */
   display: flex;
   align-items: center;
   justify-content: center;

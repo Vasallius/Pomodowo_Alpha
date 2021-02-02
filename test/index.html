@@ -12,6 +12,14 @@
 
 <body>
   <div class="ciclegraph">
+    <!-- <div class="linegraph"> -->
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
     <div class="circle"><span>1</span></div>
     <div class="circle"><span>2</span></div>
     <div class="circle"><span>3</span></div>
@@ -19,8 +27,6 @@
     <div class="circle"><span>5</span></div>
     <div class="circle"><span>6</span></div>
     <div class="circle"><span>7</span></div>
-    <div class="circle"><span>8</span></div>
-
   </div>
 
   <button class="spin">
@@ -35,6 +41,21 @@
         let circle = circles[i]
         angle += dangle
         circle.style.transform = `rotate(${angle}deg) translate(${ciclegraph.clientWidth / 3}px) rotate(-${angle}deg)`
+
+
+      }
+
+      let lines = ciclegraph.querySelectorAll(".line")
+      let langle = 293.5, ldangle = 360 / lines.length
+      for (let i = 0; i < lines.length; ++i) {
+        let line = lines[i]
+        langle += ldangle
+        line.style.transform = `rotate(${langle}deg)`
+        debugger;
+        line.style.transform = `rotate(${langle}deg) translate(${ciclegraph.clientWidth / 3.3}px) `
+        debugger;
+        // line.style.width = "20px"
+        debugger;
 
 
       }
