@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="test.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
+</head>
+
+<body>
+  <div class="ciclegraph">
+    <div class="circle"><span>1</span></div>
+    <div class="circle"><span>2</span></div>
+    <div class="circle"><span>3</span></div>
+    <div class="circle"><span>4</span></div>
+    <div class="circle"><span>5</span></div>
+    <div class="circle"><span>6</span></div>
+    <div class="circle"><span>7</span></div>
+    <div class="circle"><span>8</span></div>
+
+  </div>
+
+  <button class="spin">
+    spin
+  </button>
+  <script>
+
+    document.querySelectorAll('.ciclegraph').forEach((ciclegraph) => {
+      let circles = ciclegraph.querySelectorAll('.circle')
+      let angle = 360 - 90, dangle = 360 / circles.length
+      for (let i = 0; i < circles.length; ++i) {
+        let circle = circles[i]
+        angle += dangle
+        circle.style.transform = `rotate(${angle}deg) translate(${ciclegraph.clientWidth / 3}px) rotate(-${angle}deg)`
+
+
+      }
+    })
+
+
+    document.querySelector(".spin").addEventListener("click", function () {
+      console.log("Im getting clicked");
+      TweenLite.to(".ciclegraph", 0.5, { rotation: "315_cw" });
+      // TweenLite.to(".ciclegraph", 0.5, { rotation: "45_cw" });
+    });
+  </script>
+
+
+</body>
+
+</html>
