@@ -8,9 +8,10 @@
 
     <!-- CSS -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/9cc122fcab.js" crossorigin="anonymous"></script>
     <script src="Winwheel.min.js"></script>
 
@@ -18,8 +19,30 @@
 
 <body>
     <!-- JS -->
-    <h1>TASKS</h1>
+    <div class="logo"></div>
+    <h1 class="primary-header">Tasks</h1>
 
+    <div class="task-container">
+        <div class="task-id">
+            <p>1</p>
+        </div>
+        <p class="task-name">Task Name</p>
+        <img class="edit" src="edit-task.svg" alt="">
+    </div>
+    <div class="task-container">
+        <div class="task-id">
+            <p>2</p>
+        </div>
+        <p class="task-name">Task Name</p>
+        <img class="edit" src="edit-task.svg" alt="">
+    </div>
+    <div class="task-container">
+        <div class="task-id">
+            <p>3</p>
+        </div>
+        <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
+        <img class="edit" src="edit-task.svg" alt="">
+    </div>
     <!-- Popup Modal -->
     <!-- <button id="click" type="button" class="btn btn-primary" data-toggle="modal" data-target="#taskModal">
         Launch demo modal

@@ -1,37 +1,74 @@
+/* Variables */
+
+:root {
+  --black_substitute: #06112d;
+}
+
+/* General Paramters */
+
 body {
-  padding: 30px;
+  padding: 25px;
 }
 
-h1 {
-  display: inline-block;
-  margin-right: 20px;
+html {
+  background: #fbf8f1;
+}
+/* Header */
+
+.primary-header {
+  font-size: 24px;
+  font-family: "Roboto";
+  font-weight: 700;
+  margin: 16px 0;
+  color: var(--black_substitute);
 }
 
-/* i {
-  margin-left: 60px;
-} */
-
-/* .list-group-item {
-  padding: 20px;
-  margin-top: 30px;
-} */
-/* 
-.wheel-div,
-#canvas {
-  height: 100vh;
-} */
-
-#canvasContainer {
-  position: relative;
+.logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #585858;
+  padding: 25px;
+  margin-bottom: 15px;
+  padding: 0;
 }
 
-#canvas {
-  z-index: 1;
+/* Task List */
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 15px;
+  margin-bottom: 14px;
 }
 
-#prizePointer {
-  position: absolute;
-  left: 375px;
-  top: -20px;
-  z-index: 999;
+.task-id {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #ff9575;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 12px;
+  font-family: "Roboto";
+  color: white;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+.task-name {
+  flex-grow: 1;
+  font-family: Roboto;
+  color: var(--black_substitute);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit {
+  margin: 0 12px;
 }
