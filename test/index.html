@@ -36,7 +36,7 @@
     spin
   </button>
   <script>
-    let angle_list = [];
+    let angle_list = {};
     let arrow = document.querySelector(".arrow")
     document.querySelectorAll('.ciclegraph').forEach((ciclegraph) => {
       let circles = ciclegraph.querySelectorAll('.circle')
@@ -44,7 +44,7 @@
       for (let i = 0; i < circles.length; ++i) {
         let circle = circles[i]
         angle += dangle
-        angle_list.push(angle)
+        angle_list[`task${i + 1}`] = angle
         //  TODO: use inner width for it to be responsive
         circle.style.transform = `rotate(${angle}deg) translate(${ciclegraph.clientWidth / 5}px) rotate(-${angle}deg)`
 
@@ -66,8 +66,21 @@
 
     document.querySelector(".spin").addEventListener("click", function () {
       console.log("Im getting clicked");
-      let tween = gsap.to(".arrow", 2, { rotation: '315' })
-      console.log(typeof tween.data)
+      const TEMP_ANGLE = 2115
+      gsap.to(".arrow", 4, { rotation: TEMP_ANGLE, ease: Power4.easeOut, onComplete: determineTask })
+
+
+      // Determine what task was selected
+
+      function determineTask() {
+        for (const task in angle_list) {
+          if (angle_list[task] % 360 + 90 == TEMP_ANGLE % 360) {
+            console.log(task)
+            alert(task)
+          }
+        }
+      }
+
 
     });
   </script>
