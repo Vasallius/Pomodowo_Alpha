@@ -7,12 +7,14 @@
   <title>Document</title>
   <link rel="stylesheet" href="test.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-
+  <script src="https://kit.fontawesome.com/9cc122fcab.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="ciclegraph">
+    <i class="fas fa-arrow-circle-up fa-2x arrow"></i>
     <!-- <div class="linegraph"> -->
+    <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
@@ -27,36 +29,36 @@
     <div class="circle"><span>5</span></div>
     <div class="circle"><span>6</span></div>
     <div class="circle"><span>7</span></div>
+    <div class="circle"><span>8</span></div>
   </div>
 
   <button class="spin">
     spin
   </button>
   <script>
-
+    let angle_list = [];
+    let arrow = document.querySelector(".arrow")
     document.querySelectorAll('.ciclegraph').forEach((ciclegraph) => {
       let circles = ciclegraph.querySelectorAll('.circle')
       let angle = 360 - 90, dangle = 360 / circles.length
       for (let i = 0; i < circles.length; ++i) {
         let circle = circles[i]
         angle += dangle
-        circle.style.transform = `rotate(${angle}deg) translate(${ciclegraph.clientWidth / 3}px) rotate(-${angle}deg)`
+        angle_list.push(angle)
+        //  TODO: use inner width for it to be responsive
+        circle.style.transform = `rotate(${angle}deg) translate(${ciclegraph.clientWidth / 5}px) rotate(-${angle}deg)`
+
 
 
       }
-
+      // arrow.style.transform = "rotate(45deg)"
       let lines = ciclegraph.querySelectorAll(".line")
       let langle = 293.5, ldangle = 360 / lines.length
       for (let i = 0; i < lines.length; ++i) {
         let line = lines[i]
         langle += ldangle
         line.style.transform = `rotate(${langle}deg)`
-        debugger;
-        line.style.transform = `rotate(${langle}deg) translate(${ciclegraph.clientWidth / 3.3}px) `
-        debugger;
-        // line.style.width = "20px"
-        debugger;
-
+        line.style.transform = `rotate(${langle}deg) translate(${ciclegraph.clientWidth / 5}px) `
 
       }
     })
@@ -64,8 +66,9 @@
 
     document.querySelector(".spin").addEventListener("click", function () {
       console.log("Im getting clicked");
-      TweenLite.to(".ciclegraph", 0.5, { rotation: "315_cw" });
-      // TweenLite.to(".ciclegraph", 0.5, { rotation: "45_cw" });
+      let tween = gsap.to(".arrow", 2, { rotation: '315' })
+      console.log(typeof tween.data)
+
     });
   </script>
 

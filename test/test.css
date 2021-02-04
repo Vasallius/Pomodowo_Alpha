@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+body {
+  display: relative;
+}
+
 .ciclegraph {
   position: relative;
-  width: 500px;
+  width: inherit;
   height: 500px;
   margin: calc(100px / 2 + 0px);
 }
@@ -34,6 +38,21 @@
   margin: calc(-50px / 2);
 
   border-radius: 50%;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+
+  /* TODO: make values responsive */
+
+  margin: -140px -16px;
+  padding-bottom: 120px;
+  transform-origin: bottom center;
+  /* transform: translateY(-40px); */
 }
 
 .line {
