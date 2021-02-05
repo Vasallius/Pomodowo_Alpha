@@ -7,8 +7,8 @@
 /* General Paramters */
 
 .top {
-  padding: 25px;
-  height: 72vh;
+  padding: 24px 25px;
+  height: 74vh;
   display: flex;
   flex-direction: column;
 }
@@ -98,10 +98,15 @@ https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-bei
   margin: 0 12px;
 }
 
+.mid {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .add-task {
-  /* margin: 40px 0 0 0; */
-  text-align: right;
-  padding: 24px;
+  margin-right: 24px;
 }
 
 .navbar {
