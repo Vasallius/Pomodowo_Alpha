@@ -21,6 +21,7 @@ html {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* Header */
@@ -122,4 +123,12 @@ https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-bei
   background-color: #fff;
   padding: 16px 0;
   height: 4vh;
+  flex-shrink: 0;
+}
+
+.bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
