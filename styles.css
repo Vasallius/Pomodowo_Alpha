@@ -8,21 +8,15 @@
 
 .top {
   padding: 25px;
-  height: 90vh;
+  height: 72vh;
+  display: flex;
+  flex-direction: column;
 }
 
 html {
   background: #fbf8f1;
 }
 /* Header */
-
-.primary-header {
-  font-size: 24px;
-  font-family: "Roboto";
-  font-weight: 700;
-  margin: 16px 0;
-  color: var(--black_substitute);
-}
 
 .logo {
   height: 50px;
@@ -32,6 +26,15 @@ html {
   padding: 25px;
   margin-bottom: 15px;
   padding: 0;
+  flex-shrink: 0;
+}
+.primary-header {
+  font-size: 24px;
+  font-family: "Roboto";
+  font-weight: 700;
+  margin: 16px 0;
+  color: var(--black_substitute);
+  flex-shrink: 0;
 }
 
 /* Task List */
@@ -41,12 +44,14 @@ TO HIDE SCROLL BAR:
 https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll 
 */
 
-.task-list {
+.task-list,
+.top {
   /* height: 60vh; */
   overflow-y: scroll;
   scrollbar-width: none;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .task-list::-webkit-scrollbar {
@@ -94,8 +99,9 @@ https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-bei
 }
 
 .add-task {
-  margin: 40px 0 0 0;
+  /* margin: 40px 0 0 0; */
   text-align: right;
+  padding: 24px;
 }
 
 .navbar {
@@ -103,5 +109,5 @@ https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-bei
   justify-content: space-around;
   background-color: #fff;
   padding: 16px 0;
-  height: 10vh;
+  height: 4vh;
 }
