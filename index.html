@@ -1,154 +1,126 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro App</title>
-
-    <!-- CSS -->
-
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100' rel='stylesheet' type='text/css'>
-    <script src="https://kit.fontawesome.com/9cc122fcab.js" crossorigin="anonymous"></script>
-    <script src="Winwheel.min.js"></script>
-
+    <link rel="stylesheet" href="build/styles.css">
+    <title>Tailwind CSS Demo</title>
 </head>
 
-
-<body>
-    <!-- JS -->
-    <div class="top">
-
-        <div class="logo"></div>
-        <h1 class="primary-header">Tasks</h1>
+<body class=" bg-Light_Yellow_Accent">
 
 
-        <div class="task-list">
-            <div class="task-container">
-                <div class="task-id">
-                    <p>1</p>
-                </div>
-                <p class="task-name">Task Name</p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>2</p>
-                </div>
-                <p class="task-name">Task Name</p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
-            </div>
-            <div class="task-container">
-                <div class="task-id">
-                    <p>3</p>
-                </div>
-                <p class="task-name">A very long taskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk </p>
-                <img class="edit" src="edit-task.svg" alt="">
+    <div class="flex flex-col h-screen space-y-4">
+
+        <!-- Logo -->
+
+        <div class=" ml-6 mr-6 flex-none w-auto h-logo mt-4">
+            <div class="rounded-full w-logo h-logo bg-gray-600 ">
             </div>
         </div>
 
-    </div>
+        <!-- Header -->
 
-    <div class="mid">
-        <div class="add-task">
-            <img src="add-task.svg" alt="">
+        <div class="ml-6 mr-6 flex-none w-auto h-6 ">
+            <div class="text-base font-bold text-Black_Substitute font-sans">Tasks</div>
         </div>
-    </div>
 
-    <div class="bot">
-        <div class="navbar">
-            <img src="Task Button Selected.svg" alt="">
-            <img src="Spin Button Not Selected.svg" alt="">
+        <!-- Task List -->
+
+        <div
+            class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-grow w-auto flex flex-col space-y-3  overflow-y-auto">
+            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+                <div
+                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    <div class="text-Light_Yellow_Accent text-xs ">1</div>
+                </div>
+                <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
+                    taskkkkkkkkkkkkkkkk
+                </div>
+                <div class=" flex-none mr-3">
+                    <img class="mr-3" src="Edit Task.svg" alt="">
+                </div>
+
+            </div>
+            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+                <div
+                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    <div class="text-Light_Yellow_Accent text-xs ">2</div>
+                </div>
+                <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
+                    taskkkkkkkkkkkkkkkk
+                </div>
+                <div class=" flex-none mr-3">
+                    <img class="mr-3" src="Edit Task.svg" alt="">
+                </div>
+
+            </div>
+            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+                <div
+                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    <div class="text-Light_Yellow_Accent text-xs ">3</div>
+                </div>
+                <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
+                    taskkkkkkkkkkkkkkkk
+                </div>
+                <div class=" flex-none mr-3">
+                    <img class="mr-3 flex-none " src="Edit Task.svg" alt="">
+                </div>
+
+            </div>
+
+            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+                <div
+                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    <div class="text-Light_Yellow_Accent text-xs ">4</div>
+                </div>
+                <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
+                    taskkkkkkkkkkkkkkkk
+                </div>
+                <div class=" flex-none mr-3">
+                    <img class="mr-3" src="Edit Task.svg" alt="">
+                </div>
+
+            </div>
+
+            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+                <div
+                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    <div class="text-Light_Yellow_Accent text-xs ">5</div>
+                </div>
+                <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
+                    taskkkkkkkkkkkkkkkk
+                </div>
+                <div class=" flex-none mr-3">
+                    <img class="mr-3" src="Edit Task.svg" alt="">
+                </div>
+
+            </div>
         </div>
+
+        <!-- Add Task Button -->
+
+        <div class="ml-6 mr-6 flex-nonew-full h-logo flex justify-end ">
+            <img src="New Task.svg" alt="">
+        </div>
+
+        <!-- Navbar -->
+        <div class="navbar w-full h-nav bg-White flex flex-row justify-around items-center">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="30" rx="5" fill="#FF9575" />
+                <path d="M9.5 14.9615L13.5385 19L22 11" stroke="white" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="28" height="28" rx="4" stroke="#C4C4C4" stroke-width="2" />
+                <circle r="2.8" transform="matrix(-1 0 0 1 15 15)" stroke="#C4C4C4" stroke-width="2" />
+                <circle cx="15" cy="15" r="8" stroke="#C4C4C4" stroke-width="2" />
+            </svg>
+
+        </div>
+
     </div>
-
-
-    <!-- Scripts -->
-
-    <script src=" https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
-        integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
-        crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-
-
 </body>
 
 </html>
