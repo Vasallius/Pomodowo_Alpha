@@ -15,8 +15,14 @@
 
 html {
   background: #fbf8f1;
-  height: 100vh;
 }
+
+.screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Header */
 
 .logo {
