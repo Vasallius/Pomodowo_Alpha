@@ -20,6 +20,9 @@ module.exports = {
         Background: "#FBF8F1",
         Light_Yellow_Accent: "#F8F1E4",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],

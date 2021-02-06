@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/Draggable.min.js"></script>
     <title>Tailwind CSS Demo</title>
 </head>
 
@@ -14,14 +16,14 @@
 
         <!-- Logo -->
 
-        <div class=" ml-6 mr-6 flex-none w-auto h-logo mt-4">
+        <div class=" ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-none w-auto h-logo mt-4">
             <div class="rounded-full w-logo h-logo bg-gray-600 ">
             </div>
         </div>
 
         <!-- Header -->
 
-        <div class="ml-6 mr-6 flex-none w-auto h-6 ">
+        <div class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-none w-auto h-6 ">
             <div class="text-base font-bold text-Black_Substitute font-sans">Tasks</div>
         </div>
 
@@ -29,11 +31,15 @@
 
         <div
             class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-grow w-auto flex flex-col space-y-3  overflow-y-auto">
-            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+            <div
+                class="task-id-task flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+
+
                 <div
-                    class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                    class=" ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
                     <div class="text-Light_Yellow_Accent text-xs ">1</div>
                 </div>
+
                 <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">A very long
                     taskkkkkkkkkkkkkkkk
                 </div>
@@ -41,6 +47,12 @@
                     <img class="mr-3" src="Edit Task.svg" alt="">
                 </div>
 
+            </div>
+
+            <!-- Testing for dragging -->
+            <div
+                class=" -z-10 absolute ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
+                <div class="text-Light_Yellow_Accent text-xs ">1</div>
             </div>
             <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
                 <div
@@ -100,8 +112,8 @@
 
         <!-- Add Task Button -->
 
-        <div class="ml-6 mr-6 flex-nonew-full h-logo flex justify-end ">
-            <img src="New Task.svg" alt="">
+        <div class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-nonew-full h-logo flex justify-end ">
+            <img src=" New Task.svg" alt="">
         </div>
 
         <!-- Navbar -->
@@ -122,5 +134,34 @@
 
     </div>
 </body>
+
+<script>
+    let gridWidth = 80;
+    let dragger = document.querySelector(".task-id-task")
+    Draggable.create(dragger, {
+        type: "x",
+        edgeResistance: 0.65,
+        bounds: { minX: 0, maxX: 80 },
+        lockAxis: true,
+        throwProps: true,
+        // liveSnap: true,
+        snap: function (endValue) {
+            console.log(endValue)
+            return Math.round(endValue / gridWidth) * gridWidth;
+        },
+        // onRelease: function () {
+        //     console.log('releasing')
+        //     console.log(this.target.x)
+        //     // if (this.target.x) {
+        //     //     gsap.to(this.target, 0.1, { x: 0 })
+        //     // }
+
+        //     console.log('animation done')
+        // }
+        // snap: [0]
+    });
+</script>
+
+
 
 </html>
