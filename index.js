@@ -1,5 +1,7 @@
 let task_list = document.getElementById("task_list");
+let btn = document.getElementById("add_task_btn");
 let done_btn = document.getElementById("done_btn");
+let modal = document.getElementById("myModal");
 
 loadEventListeners();
 
@@ -55,15 +57,30 @@ function getTasks() {
                     </div>
                 </div>
                 `;
+
     new_task_container.classList.add("relative", "w-full");
+    if (task_id == 0) new_task_container.classList.add("mt-2");
     task_list.appendChild(new_task_container);
     attachDragger();
   });
 }
 
-function addTask() {
-  console.log("i got called");
+function addTask(e) {
+  console.log("ADDING TASK");
+
+  let tasks;
+  if (localStorage.getItem("tasks") == null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  let task_id = tasks.length + 1;
+
+  let modal = e.target.parentElement.parentElement.parentElement;
+  modal.style.display = "none";
+
   let new_task = this.parentElement.firstElementChild.value;
+  this.parentElement.firstElementChild.value = "";
   let new_task_container = document.createElement("div");
   new_task_container.innerHTML = `<div
                     class=" transform translate-y-delete delete-btn -z-10 absolute top-0 left-0 ml-3 flex-none w-logo h-logo">
@@ -89,7 +106,7 @@ function addTask() {
                         class="task flex-none  w-full h-nav bg-white rounded-2xl  flex flex-row items-center space-x-2">
                         <div
                             class=" ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
-                            <div class="text-Light_Yellow_Accent text-xs ">1</div>
+                            <div class="text-Light_Yellow_Accent text-xs ">${task_id}</div>
                         </div>
 
                         <div class="flex-grow font-sans font-normal text-sm text-Black_Substitute truncate">${new_task}
@@ -149,14 +166,13 @@ function attachDragger() {
   });
 }
 
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("add_task_btn");
-
 // When the user clicks the button, open the modal
 btn.onclick = function () {
   gsap.fromTo(modal, { top: "-300px", opacity: 0 }, { top: "0", opacity: "1" });
   gsap.to($(".task"), 0.1, { zIndex: 1 });
   modal.style.display = "block";
+  let input = document.getElementById("task_input_field");
+  input.focus();
 };
 
 // When the user clicks anywhere outside of the modal, close it
