@@ -32,7 +32,7 @@
         <!-- Task List -->
 
 
-        <div
+        <div id="task_list"
             class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-grow w-auto flex flex-col space-y-3  overflow-y-auto overflow-x-hidden">
 
             <div class="relative w-full mt-2">
@@ -161,7 +161,7 @@
 
 
 
-            <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
+            <!-- <div class="flex-none w-full h-nav bg-white rounded-2xl mt-2 flex flex-row items-center space-x-2">
                 <div
                     class="ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
                     <div class="text-Light_Yellow_Accent text-xs ">2</div>
@@ -214,7 +214,7 @@
                     <img class="mr-3" src="Edit Task.svg" alt="">
                 </div>
 
-            </div>
+            </div> -->
         </div>
 
         <!-- Add Task Button -->
@@ -241,18 +241,17 @@
 
     </div>
 
-    <!-- Trigger/Open The Modal -->
-    <button id="myBtn">Open Modal</button>
-
     <!-- The Modal -->
     <div id="myModal" class=" hidden fixed z-50 pt-24 top-0 left-0 w-full h-full overflow-auto">
 
         <!-- Modal content -->
         <div class=" animate-slideDown relative bg-white m-auto p-0 rounded-xl w-4/5 h-32 border-none shadow-md">
             <div class="flex flex-col items-end py-10 px-10 text-lg font-sans space-y-4">
-                <input class="placeholder-gray-400 w-full  outline-none " type="text" placeholder="Add a new task"
-                    autofocus>
-                <div class="text-Black_Substitute rounded-full w-auto  px-6 font-bold bg-gray-200 text-center">Done
+                <input class="placeholder-gray-400 w-full  outline-none " value="" type="text"
+                    placeholder="Add a new task" autofocus>
+                <div id="done_btn"
+                    class="cursor-pointer text-Black_Substitute rounded-full w-auto  px-6 font-bold bg-gray-200 text-center">
+                    Done
                 </div>
             </div>
 
