@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      spacing: {
+        delete: "7.5px",
+      },
       width: {
         logo: "50px",
         task_id: "25px",
