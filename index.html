@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en pointer-events-none">
 
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,10 @@
     <title>Pomodoro App</title>
 </head>
 
-<body class=" bg-Light_Yellow_Accent">
+<body class=" bg-Light_Yellow_Accent pointer-events-none">
 
 
-    <div class="flex flex-col h-screen space-y-4">
+    <div class="flex flex-col h-screen space-y-4 pointer-events-none">
 
         <!-- Logo -->
 
@@ -33,7 +33,7 @@
 
 
         <div id="task_list"
-            class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-grow w-auto flex flex-col space-y-3  overflow-y-auto overflow-x-hidden">
+            class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-grow w-auto flex flex-col space-y-3  overflow-y-auto overflow-x-hidden pointer-events-none">
 
             <!-- <div class="relative w-full mt-2">
 
@@ -80,7 +80,8 @@
 
         <!-- Add Task Button -->
 
-        <div class="ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-nonew-full h-logo flex justify-end ">
+        <div
+            class="pointer-events-auto ml-6 mr-6 md:ml-12 md:mr-12 lg:ml-24 lg:mr-24 flex-nonew-full h-logo flex justify-end ">
             <img id="add_task_btn" src=" New Task.svg" alt="">
         </div>
 
@@ -103,7 +104,7 @@
     </div>
 
     <!-- The Modal -->
-    <div id="myModal" class=" hidden fixed z-50 pt-24 top-0 left-0 w-full h-full overflow-auto">
+    <div id="myModal" class="pointer-events-auto hidden fixed z-50 pt-24 top-0 left-0 w-full h-full overflow-auto">
 
         <!-- Modal content -->
         <div class=" animate-slideDown relative bg-white m-auto p-0 rounded-xl w-4/5 h-32 border-none shadow-md">

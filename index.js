@@ -21,7 +21,7 @@ function getTasks() {
   tasks.forEach((task, task_id) => {
     const new_task_container = document.createElement("div");
     new_task_container.innerHTML = `<div
-                    class=" transform translate-y-delete delete-btn -z-10 absolute top-0 left-0 ml-3 flex-none w-logo h-logo">
+                    class=" pointer-events-auto transform translate-y-delete delete-btn -z-10 absolute top-0 left-0 ml-3 flex-none w-logo h-logo">
                     <div class="w-logo h-logo">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="25" cy="25" r="25" fill="#F84008" />
@@ -39,9 +39,9 @@ function getTasks() {
                         </svg>
                     </div>
                 </div>
-                <div class="flex items-center">
+                <div class="flex items-center pointer-events-none">
                     <div
-                        class="task flex-none  w-full h-nav bg-white rounded-2xl  flex flex-row items-center space-x-2">
+                        class="task pointer-events-auto flex-none  w-full h-nav bg-white rounded-2xl  flex flex-row items-center space-x-2">
                         <div
                             class=" ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
                             <div class="text-Light_Yellow_Accent text-xs ">${
@@ -58,7 +58,11 @@ function getTasks() {
                 </div>
                 `;
 
-    new_task_container.classList.add("relative", "w-full");
+    new_task_container.classList.add(
+      "relative",
+      "w-full",
+      "pointer-events-none"
+    );
     if (task_id == 0) new_task_container.classList.add("mt-2");
     task_list.appendChild(new_task_container);
     attachDragger();
@@ -81,9 +85,10 @@ function addTask(e) {
 
   let new_task = this.parentElement.firstElementChild.value;
   this.parentElement.firstElementChild.value = "";
+
   let new_task_container = document.createElement("div");
   new_task_container.innerHTML = `<div
-                    class=" transform translate-y-delete delete-btn -z-10 absolute top-0 left-0 ml-3 flex-none w-logo h-logo">
+                    class=" pointer-events-auto transform translate-y-delete delete-btn -z-10 absolute top-0 left-0 ml-3 flex-none w-logo h-logo">
                     <div class="w-logo h-logo">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="25" cy="25" r="25" fill="#F84008" />
@@ -101,9 +106,9 @@ function addTask(e) {
                         </svg>
                     </div>
                 </div>
-                <div class="flex items-center">
+                <div class="flex items-center pointer-events-none">
                     <div
-                        class="task flex-none  w-full h-nav bg-white rounded-2xl  flex flex-row items-center space-x-2">
+                        class="pointer-events-auto task flex-none  w-full h-nav bg-white rounded-2xl  flex flex-row items-center space-x-2">
                         <div
                             class=" ml-3 flex-none flex items-center justify-center w-task_id h-task_id rounded-full bg-Main_Orange">
                             <div class="text-Light_Yellow_Accent text-xs ">${task_id}</div>
@@ -117,9 +122,12 @@ function addTask(e) {
                     </div>
                 </div>
                 `;
-  new_task_container.classList.add("relative", "w-full");
+  new_task_container.classList.add("relative", "w-full", "pointer-events-none");
+  console.log(new_task_container.firstElementChild);
   task_list.appendChild(new_task_container);
   attachDragger();
+  new_task_container.firstElementChild.addEventListener("click", deleteTask);
+
   // need to add index
 
   storeTaskInLocalStorage(new_task);
@@ -138,6 +146,12 @@ function storeTaskInLocalStorage(new_task) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+function deleteTask(e) {
+  console.log("DELETING TASK");
+
+  e.target.parentElement.parentElement.parentElement.parentElement.remove();
+}
+
 // Dragging Functionality
 
 function attachDragger() {
@@ -153,16 +167,24 @@ function attachDragger() {
 
     onRelease: function () {
       if ($(this.target).position().left < initial_position + dragDistance) {
-        console.log("Going back");
+        console.log("HIDING DELETE BUTTON");
         gsap.to(this.target, 0.5, {
           x: 0,
           ease: Elastic.easeOut.config(2.5, 1),
         });
       } else {
-        // TODO: implement better drag animation
-        // gsap.to(dragger, 0.2, { x: dragDistance, ease: Back.easeIn.config(1) })
+        // console.log("CHANGING BTN Z INDEX");
+        // $(".delete-btn").style.zIndex = "20";
+        // // TODO: implement better drag animation
+        // // gsap.to(dragger, 0.2, { x: dragDistance, ease: Back.easeIn.config(1) })
       }
     },
+  });
+
+  let delete_btn = $(".delete-btn");
+  delete_btn.on("click", function (e) {
+    console.log("DELETING TASK");
+    e.target.parentElement.parentElement.parentElement.parentElement.remove();
   });
 }
 
